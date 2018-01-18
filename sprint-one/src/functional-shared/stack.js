@@ -1,8 +1,35 @@
 var Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  var someInstance = {};
+  someInstance.storage = {};
+  someInstance.count = 0;
+  // for (var key in queueMethods) {
+  //   someInstance[key] = queueMethods[key];
+  // }
+  _.extend(someInstance, stackMethods);
+  return someInstance;
 };
 
-var stackMethods = {};
+var stackMethods = {
+  push: function(value) {
+    this.storage[this.count] = value;
+    this.count++;
+  },
 
+  pop: function() {
+    if (this.count > 0 ) {
+      // identify first key in storage
+      var last = this.storage[this.count - 1];
+      //and delete it
+      delete this.storage[last];
+
+      // decrease count
+      this.count--;
+      return last;
+    }
+  },
+
+  size: function() {
+    return this.count;
+  }
+};
 
