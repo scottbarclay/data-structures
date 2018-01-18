@@ -2,9 +2,6 @@ var Queue = function() {
   var someInstance = {};
   someInstance.storage = {};
   someInstance.count = 0;
-  // for (var key in queueMethods) {
-  //   someInstance[key] = queueMethods[key];
-  // }
   _.extend(someInstance, queueMethods);
   return someInstance;
 };

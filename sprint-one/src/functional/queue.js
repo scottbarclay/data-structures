@@ -18,8 +18,7 @@ var Queue = function() {
 
       for (var key in storage) {
         var val = storage[key];
-        storage[+key - 1] = val;
-          
+        storage[+key - 1] = val;          
       }
       // decrease count
       count--;
