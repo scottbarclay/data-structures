@@ -43,22 +43,19 @@ var LinkedList = function() {
 
   // verify that an object exists in the list
   list.contains = function(target) {
-    if (list.head === null) {
-      return false;
-    } else {
-      var listNode = list.head;
-      var testNode = function(listNode) {
-        if(listNode.value === target){
-          return true;
-        }
-        //if(listNode === list.tail && listNode.value !== target){
-        if(listNode === undefined) {
-          return false;
-        }
-        testNode(listNode.next);
-      };
-      testNode(listNode);
-    }
+    
+    var listNode = list.head;
+    var testNode = function(listNode) {
+      if(listNode.value === target){
+        return true;
+      }
+      if(listNode.next === null) {
+        return false;
+      }
+      return testNode(listNode.next);
+    };
+    return testNode(listNode);
+    
   };
   return list;
 };
