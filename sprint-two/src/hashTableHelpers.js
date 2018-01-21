@@ -13,7 +13,7 @@
 
 var LimitedArray = function(limit) {
   var storage = [];
-
+  
   var limitedArray = {};
   limitedArray.get = function(index) {
     checkLimit(index);
@@ -37,9 +37,11 @@ var LimitedArray = function(limit) {
       throw new Error('Error trying to access an over-the-limit index');
     }
   };
-
   return limitedArray;
 };
+
+
+
 
 // This is a "hashing function". You don't need to worry about it, just use it
 // to turn any string into an integer that is well-distributed between the
